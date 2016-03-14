@@ -1,6 +1,13 @@
 #### udgitcomp
 
+#####5
+######tracked
+```
+```
+######deleted file
+```
 
+```
 #####6
 ######1 visual merge.
 perforce p4merge for windows  
@@ -198,4 +205,13 @@ git push origin master --tags
 deelte a tag on remote
 ```
 git push origin :tagname    // (nothing for remote) : tagname
+```
+##### final
+######reset
+```
+git reset HEAD^
+```
+######track remote branch
+```
+git branch localname origin/remotename
 ```
