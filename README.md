@@ -55,10 +55,11 @@ git diff HEAD
 git difftool HEAD
 ```
 ######3 compare staging area and repo(last commit) 
-``` cmd q to quit
+``` 
 git diff --staged HEAD
 git difftool --staged HEAD
 ```
+cmd q to quit
 ######4 compare to one file
 ```
 git diff -- filename
@@ -74,4 +75,75 @@ git diff HEAD HEAD^
 ```
 git diff master origin/master
 ```
+#####branch
 
+```
+git branch -a
+```
+change name
+```
+git branch -m oldname newname
+```
+compare branch
+```
+git diff br1 br2
+```
+ff merge: git put all commits from other branch to master branch. (does not create new commit)  
+--no-ff : will create a new commit, old branch's commit will not put on new commit.  
+
+Automatic merge:
+```
+git branch other -m "message"
+```
+#####rebase
+if we are on new branch(the branch is in development),also we want to get newest feature from master branch, we can rabase current branch on master branch
+```
+(newbranch)git rebase master
+```
+If both branchs have commits and confilct happens, to abort,
+```
+git rebase --abort
+```
+to resolve,
+```
+git rebase master
+git mergetool
+git add confile
+git rebase --continue
+```
+######rebase from remote branch
+```
+git fetch origin master  //do not use pull.
+(master)git pull --rebase origin master
+```
+#####stash
+######basic
+```
+git stash(in working dict, not in stage dict)
+```
+restore to working dict:
+```
+git stash apply
+```
+cleanup
+```
+git stash list 
+git stash drop
+```
+
+#####stash untracked files(by default stash only tracked files)
+```
+git ls-files //list all tracked files
+```
+
+stash all files(including untracked files)
+```
+git stash -u
+```
+more convenient
+```
+git stash pop=apply+drop
+```
+######multi stash
+```
+```
