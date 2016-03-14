@@ -119,7 +119,7 @@ git fetch origin master  //do not use pull.
 #####stash
 ######basic
 ```
-git stash(in working dict, not in stage dict)
+git stash(in working dict, not in stage dict) = git stash save
 ```
 restore to working dict:
 ```
@@ -146,4 +146,56 @@ git stash pop=apply+drop
 ```
 ######multi stash
 ```
+git stash save "message"
+```
+```
+git stash show stash@{1}  //shiw diff
+```
+```
+git stash apply stash@{1}
+```
+```
+git stash clear //drop all
+```
+######stash in another branch
+```
+git stash branch newbranch  //stash dropped, all changes(untracked, tracked but ont staged) will be restored
+```
+#####tag
+######1 lightweight
+```
+git tag tagname
+git tag --list
+git show tagname(show latest commit)
+git tag --delete tagname
+```
+######2 annotated
+```
+git tag -a 1.0 //then type in editor
+git tag show 1.0
+```
+######3 compare
+another syntax to type message:
+```
+git tag 1.0 -m "message"
+git diff(tool) tagname tagname
+```
+###### tag on a apecific commit
+```
+git tag -a 1.0 444111
+```
+###### change a existing tag to another commit
+```
+git tag -a 1.0 -f 555111
+```
+###### push
+```
+git push origin tagname (also push the corresponding commits, if not pushed)
+```
+```
+git push origin master --tags
+```
+deelte a tag on remote
+```
+git push origin :tagname    // (nothing for remote) : tagname
 ```
